@@ -9,8 +9,7 @@ class Table{
     constructor(ele){
         this.ele = ele;
         this.fetchData();
-
-        
+        // this.handleClick = this.handleClick.bind(this)
     }
     
     fetchData(){
@@ -30,8 +29,7 @@ class Table{
 
     }
     setupTable(){
-        console.log(this.allElements)
-        
+
         for (let i = 0; i < this.allElements.length; i++){
 
             const div = document.createElement("div");
@@ -56,6 +54,13 @@ class Table{
             this.ele.appendChild(div);
         };
      }
+
+    //  handleClick(e){
+    //     const el = e.target;
+    //     if (el.classList.contains("element")){
+    //         console.log("hi")
+    //     }
+    //  }
 }    
 
 module.exports = Table;

@@ -11,6 +11,12 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
     const figure = document.querySelector("#periodic-table");
     new Table(figure);
+    figure.addEventListener('click', function(event){
+        let cell = event.target;
+        let number = cell.querySelector(".atomicNum").innerText;
+        console.log(number);
 
+
+    });
 });
 

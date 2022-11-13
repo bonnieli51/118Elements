@@ -26,6 +26,7 @@ input[type=submit] {
 }
 
 header {
+  font-family: "Roboto", Arial, sans-serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -60,9 +61,11 @@ header a {
 #periodic-table .element .symbol {
   padding: 10px;
   font-weight: 100;
+  pointer-events: none;
 }
 #periodic-table .element .atomicNum {
   font-size: 80%;
+  pointer-events: none;
 }
 #periodic-table .element:hover {
   background-color: lightblue;
