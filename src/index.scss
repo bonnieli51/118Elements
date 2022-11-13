@@ -1,0 +1,34 @@
+@import "./styles/reset.scss";
+
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 50px;
+    background-color: lightblue;
+
+    a {
+        padding: 10px
+    }
+}
+
+#periodic-table{
+    height: 600px;
+    width: 900px;
+    border: 1px solid black;
+
+    element{
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 1px;
+        right: 1px;
+        box-sizing: border-box;
+        border: 1px solid rgba(0,0,0,0.05);
+        text-align: center;
+        background-color: rgba(0, 128, 128, 0.6)   
+    }
+
+}
+

@@ -1,2 +1,3 @@
 node_modules/
-.DS_Store
+.DS_Store 
+# invisible. stores attributes and metadata about currnt direct and data aroung it. Should always ignore this!
