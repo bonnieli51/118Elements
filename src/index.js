@@ -5,11 +5,12 @@
 // //     new Example(main);
 // // });
 
-import Table from "./scripts/table";
+const Table = require("./scripts/table.js");
 
 document.addEventListener("DOMContentLoaded", ()=>{
 
     const figure = document.querySelector("#periodic-table");
-    let table = new Table(figure);
+    new Table(figure);
+
 });
 

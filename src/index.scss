@@ -7,28 +7,50 @@ header{
     align-items: center;
     font-size: 50px;
     background-color: lightblue;
-
+    
     a {
         padding: 10px
     }
 }
 
 #periodic-table{
-    height: 600px;
+    display: grid;
+    position: relative;
+    grid-column-gap:.5vw ;
+    grid-row-gap: .5vw;
+    grid-template-columns: repeat(19, 1fr);
+    padding-left: 0;
     width: 900px;
-    border: 1px solid black;
+    font-family: 'Roboto', Arial, sans-serif;
 
-    element{
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 1px;
-        right: 1px;
-        box-sizing: border-box;
-        border: 1px solid rgba(0,0,0,0.05);
+    .element{
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid black;
+        height: 60px;
+        padding: 20px;
         text-align: center;
-        background-color: rgba(0, 128, 128, 0.6)   
+        cursor: pointer;
+
+        .symbol{
+            padding: 10px;
+            font-weight: 100;
+        }
+
+        .atomicNum{
+            font-size: 80%;
+        }
+       
+    }
+    .element:hover{
+        background-color: lightblue;
     }
 
+    
+
 }
+
 

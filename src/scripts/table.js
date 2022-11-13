@@ -2,50 +2,60 @@
 // const { at } = require("core-js/core/string");
 
 
-let allElements = "";
-
-var requestOptions = {
-    method: 'GET',
-    redirect: 'follow'
-
-  };
-  
-  fetch("https://periodic-table-elements-info.herokuapp.com/elements", requestOptions)
-    .then(response => response.json())
-    .then(result => allElements = result)
-    .catch(error => console.log('error', error));
 
 class Table{
+    allElements
+
     constructor(ele){
         this.ele = ele;
-        this.setupTable();
+        this.fetchData();
+
+        
     }
+    
+    fetchData(){
 
+        var requestOptions = {
+            method: 'GET',
+            redirect: 'follow'
+        };
+  
+        fetch("https://periodic-table-elements-info.herokuapp.com/elements", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                this.allElements = result
+                this.setupTable();
+            })
+            .catch(error => console.log('error', error));
+
+    }
     setupTable(){
+        console.log(this.allElements)
+        
+        for (let i = 0; i < this.allElements.length; i++){
 
-        for (let i = 0; i < allElements.length; i++){
             const div = document.createElement("div");
 
             div.classList.add("element");
 
             const atomicNum = document.createElement("div");        
             atomicNum.classList.add("atomicNum");
-            atomicNum.innerHTML = allElements[i].atomicNumber; 
+            atomicNum.innerHTML = this.allElements[i].atomicNumber; 
 
-            const symbol = document.createElement("div");
-            symbol.innerHTML = allElements[i].symbol;
+            const symbol = document.createElement("h2");
+            symbol.innerHTML = this.allElements[i].symbol;
             symbol.classList.add("symbol");
 
-            const name = document.createElement("div");
-            symbol.innerHTML = allElements[i].name
-            name.classList.add("name");
+            // const name = document.createElement("div");
+            // symbol.innerHTML = this.allElements[i].name
+            // name.classList.add("name");
             
             div.appendChild(atomicNum);
             div.appendChild(symbol);
-            div.appendChild(name);
+            // div.appendChild(name);
             this.ele.appendChild(div);
         };
      }
 }    
 
-export default Table;
+module.exports = Table;
