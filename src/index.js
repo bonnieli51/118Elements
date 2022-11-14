@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     figure.addEventListener('click', function(event){
         var c = document.getElementById("bohr-model");
         var ctx = c.getContext("2d");
+        ctx.clearRect(0, 0, 600, 600);
     
 
         let cell = event.target;
@@ -29,7 +30,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
           fetch(`https://periodic-table-elements-info.herokuapp.com/element/atomicNumber/${number}`, requestOptions)
             .then(response => response.json())
             .then(data => {
-              
                 new Model(ctx,data);
             })
             .catch(error => console.log('error', error));

@@ -19,17 +19,23 @@ function Model(ctx,data){
         electronConfiguration =  nobleGases[nobleGas].concat(electronConfiguration)
         // console.log(electronConfiguration)
    }
+
 const count = {}
 electronConfiguration.forEach( (el) => {
     // console.log(el[0]);
     if(!count[el[0]]) count[el[0]] = 0;
     count[el[0]] += parseInt(el.slice(2));
-
 })
+
     const shells = Object.values(count);
-    draw(ctx);
+    console.log(shells)
+    shells.forEach( (shellNum,i) => {
+
+        draw(ctx,i + 1);
+    });
+
     // shells.forEach( (numElectrons, shellNum) => {
-    //     setup(numElectrons, shellNum + 1);
+    //     draw(numElectrons, shellNum + 1);
     // });
 }
 
@@ -41,17 +47,20 @@ electronConfiguration.forEach( (el) => {
 
 
 
-function draw(ctx){
-    // const modelCanvas = document.getElementById("bohr-model");
-    // const ctx = modelCanvas.getContext("2d");
-
-    // ctx.beginPath();
-    // ctx.arc(250,250, 1, 0, Math.pi*2 );
-    // ctx.stoke();
- 
+function draw(ctx, shellNum){
+    //orbit
+    console.log(shellNum)
+  
     ctx.beginPath();
-    ctx.arc(100, 75, 50, 0, 2 * Math.PI);
+    ctx.linewidth = 2;
+    ctx.arc(300, 300, 40 * shellNum, Math.PI * 2, false);
+    ctx.strokeStyle = 'rgba(255, 255, 25,5, 0.35)';
     ctx.stroke();
+    ctx.closePath();
+ 
+    // ctx.beginPath();
+    // ctx.arc(100, 75, 50, 0, 2 * Math.PI);
+    // ctx.stroke();
 }
 
 module.exports = Model;
