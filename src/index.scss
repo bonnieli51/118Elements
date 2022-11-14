@@ -7,7 +7,9 @@ header{
     justify-content: space-between;
     align-items: center;
     font-size: 50px;
-    background-color: lightblue;
+    background-color: #93A8C9;
+    color: #FFFFFF;
+
     
     a {
         padding: 10px
@@ -17,8 +19,8 @@ header{
 #periodic-table{
     display: grid;
     position: relative;
-    grid-column-gap:.5vw ;
-    grid-row-gap: .5vw;
+    grid-column-gap:.4vw ;
+    grid-row-gap: .4vw;
     grid-template-columns: repeat(18, 1fr);
     padding-left: 0;
     width: 900px;
@@ -35,7 +37,7 @@ header{
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        border: 1px solid black;
+        border: 1px solid #0D2557;
         height: 60px;
         padding: 20px;
         text-align: center;

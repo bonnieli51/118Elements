@@ -11,8 +11,13 @@ const Model = require("./scripts/model.js");
 document.addEventListener("DOMContentLoaded", ()=>{
 
     const figure = document.querySelector("#periodic-table");
+
     new Table(figure);
     figure.addEventListener('click', function(event){
+        var c = document.getElementById("bohr-model");
+        var ctx = c.getContext("2d");
+    
+
         let cell = event.target;
         let number = cell.querySelector(".atomicNum").innerText;
 
@@ -24,9 +29,12 @@ document.addEventListener("DOMContentLoaded", ()=>{
           fetch(`https://periodic-table-elements-info.herokuapp.com/element/atomicNumber/${number}`, requestOptions)
             .then(response => response.json())
             .then(data => {
-                new Model(data);
+              
+                new Model(ctx,data);
             })
             .catch(error => console.log('error', error));
+
+
     });
 });
 

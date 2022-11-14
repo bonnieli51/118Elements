@@ -1,5 +1,5 @@
 
-function Model(data){
+function Model(ctx,data){
 
     const nobleGases = {
     "[He]": ['1s2'], 
@@ -22,16 +22,37 @@ function Model(data){
 const count = {}
 electronConfiguration.forEach( (el) => {
     // console.log(el[0]);
-   if(!count[el[0]]) count[el[0]] = 0;
-   count[el[0]] += parseInt(el.slice(2));
+    if(!count[el[0]]) count[el[0]] = 0;
+    count[el[0]] += parseInt(el.slice(2));
 
 })
- const shells = Object.values(count);
- console.log(shells);
+    const shells = Object.values(count);
+    draw(ctx);
+    // shells.forEach( (numElectrons, shellNum) => {
+    //     setup(numElectrons, shellNum + 1);
+    // });
 }
 
+// function draw(numElectrons, shellNum){
+
+//     let r = 50 * shellNum; 
+//     let n = numElectrons;
+//     // console.log(r, n) 
 
 
+
+function draw(ctx){
+    // const modelCanvas = document.getElementById("bohr-model");
+    // const ctx = modelCanvas.getContext("2d");
+
+    // ctx.beginPath();
+    // ctx.arc(250,250, 1, 0, Math.pi*2 );
+    // ctx.stoke();
+ 
+    ctx.beginPath();
+    ctx.arc(100, 75, 50, 0, 2 * Math.PI);
+    ctx.stroke();
+}
 
 module.exports = Model;
 
