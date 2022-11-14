@@ -42,10 +42,13 @@ header a {
   position: relative;
   grid-column-gap: 0.5vw;
   grid-row-gap: 0.5vw;
-  grid-template-columns: repeat(19, 1fr);
+  grid-template-columns: repeat(18, 1fr);
   padding-left: 0;
   width: 900px;
   font-family: "Roboto", Arial, sans-serif;
+}
+#periodic-table .cell {
+  pointer-events: none;
 }
 #periodic-table .element {
   display: flex;

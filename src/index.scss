@@ -19,10 +19,15 @@ header{
     position: relative;
     grid-column-gap:.5vw ;
     grid-row-gap: .5vw;
-    grid-template-columns: repeat(19, 1fr);
+    grid-template-columns: repeat(18, 1fr);
     padding-left: 0;
     width: 900px;
     font-family: 'Roboto', Arial, sans-serif;
+
+
+    .cell{
+        pointer-events: none;
+    }
 
     .element{
 
@@ -35,7 +40,6 @@ header{
         padding: 20px;
         text-align: center;
         cursor: pointer;
-        
 
         .symbol{
             padding: 10px;
@@ -46,14 +50,11 @@ header{
         .atomicNum{
             font-size: 80%;
             pointer-events: none;
-        }
-       
+        }  
     }
     .element:hover{
         background-color: lightblue;
     }
-
-    
 
 }
 

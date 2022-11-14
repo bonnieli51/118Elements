@@ -6,6 +6,7 @@
 // // });
 
 const Table = require("./scripts/table.js");
+const Model = require("./scripts/model.js");
 
 document.addEventListener("DOMContentLoaded", ()=>{
 
@@ -14,9 +15,18 @@ document.addEventListener("DOMContentLoaded", ()=>{
     figure.addEventListener('click', function(event){
         let cell = event.target;
         let number = cell.querySelector(".atomicNum").innerText;
-        console.log(number);
 
-
+        var requestOptions = {
+            method: 'GET',
+            redirect: 'follow'
+          };
+          
+          fetch(`https://periodic-table-elements-info.herokuapp.com/element/atomicNumber/${number}`, requestOptions)
+            .then(response => response.json())
+            .then(data => {
+                new Model(data);
+            })
+            .catch(error => console.log('error', error));
     });
 });
 
