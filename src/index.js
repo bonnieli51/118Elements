@@ -15,8 +15,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
     new Table(figure);
     figure.addEventListener('click', function(event){
         var c = document.getElementById("bohr-model");
+        c.width= 600;
+        c.height= 600;
         var ctx = c.getContext("2d");
-        ctx.clearRect(0, 0, 600, 600);
+        ctx.clearRect(0, 0, c.width, c.height);
     
 
         let cell = event.target;
