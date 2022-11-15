@@ -29,14 +29,18 @@ electronConfiguration.forEach( (el) => {
 
     const shells = Object.values(count);
     console.log(shells)
-    shells.forEach( (shellNum,i) => {
-
-        draw(ctx,i + 1);
-    });
-
-    // shells.forEach( (numElectrons, shellNum) => {
-    //     draw(numElectrons, shellNum + 1);
+    drawNucleus(ctx);
+    // shells.forEach( (shellNum,i) => {
+    //     drawOrbits(ctx,i + 1);
     // });
+
+    shells.forEach( (numElectrons, shellNum) => {
+       
+        drawOrbits(ctx, shellNum + 1);
+        for (let i = 0 ; i < numElectrons; i++){
+            drawElectron(ctx,shellNum + 1)
+        }
+    });
 }
 
 // function draw(numElectrons, shellNum){
@@ -47,10 +51,8 @@ electronConfiguration.forEach( (el) => {
 
 
 
-function draw(ctx, shellNum){
-    //orbit
-    console.log(shellNum)
-  
+function drawOrbits(ctx, shellNum){
+
     ctx.beginPath();
     ctx.linewidth = 2;
     ctx.arc(300, 300, 40 * shellNum, Math.PI * 2, false);
@@ -58,10 +60,32 @@ function draw(ctx, shellNum){
     ctx.stroke();
     ctx.closePath();
  
-    // ctx.beginPath();
-    // ctx.arc(100, 75, 50, 0, 2 * Math.PI);
-    // ctx.stroke();
 }
+
+function drawNucleus(ctx){
+    ctx.beginPath();
+    ctx.arc(300, 300, 15, Math.PI * 2, false);
+    ctx.fillStyle = "rgba(0, 0, 0)";
+    ctx.fill()
+    ctx.closePath();
+}
+
+function drawElectron(ctx,shellNum){
+    let radian = getRandomArbitrary(0, 6.283);
+    let radius = 40 * shellNum
+    let x =  300+ Math.sin(radian) * radius; 
+    let y = 300 +Math.cos(radian) * radius; 
+    ctx.beginPath();
+    ctx.arc(x, y, 5, Math.PI * 2, false);
+    ctx.fillStyle = "rgba(0, 0, 0)";
+    ctx.fill()
+    ctx.closePath();
+
+}
+
+function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+  }
 
 module.exports = Model;
 
