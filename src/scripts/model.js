@@ -58,28 +58,16 @@ class Model{
             
             for (let i = 0 ; i < numElectrons; i++){
                 let radian = this.getRandomArbitrary(0, 6.283);
-                this.electrons.push(new Electron(this.ctx, this.ctx.canvas.width/2 + Math.sin(radian) * orbitalRadius, this.ctx.canvas.width/2 + Math.cos(radian) * orbitalRadius, 5, this.data[0].cpkHexColor, 0.05, orbitalRadius, radian));
-            }
-            // this.oribitals.forEach( (orbital) =>{
-            //     orbital.draw()
-            // });
-            // this.electrons.forEach( (electron) => {
-            //     electron.draw();
-            // });
-
-            // for (let i = 0; i < 1; i ++){
-            //     console.log(this.electrons[0])
-            //     // console.log(this.electrons[0].x, this.electrons[0].y)
-            //     this.electrons[0].update();
-               
-            // }
-            
+                let velocity = this.getRandomArbitrary(0.006, 0.01);
+                this.electrons.push(new Electron(this.ctx, this.ctx.canvas.width/2 + Math.sin(radian) * orbitalRadius, this.ctx.canvas.width/2 + Math.cos(radian) * orbitalRadius, 5, this.data[0].cpkHexColor, velocity, orbitalRadius, radian));
+            }         
         })
     }
     
     // will call on objects.draw or electron.animate here
     animate(){
-        requestAnimationFrame(this.animate);
+        // console.log(this.animate)
+        requestAnimationFrame(this.animate.bind(this));
         this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
 
         this.nucleus.draw();
