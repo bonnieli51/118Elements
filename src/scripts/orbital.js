@@ -1,4 +1,4 @@
-class Orbit{
+class Orbital{
     constructor(ctx, x, y, radius, color, velocity) {
         this.ctx = ctx;
         this.x = x;
@@ -20,4 +20,4 @@ class Orbit{
 
 
 
-module.exports = Orbit; 
+module.exports = Orbital; 

@@ -1,17 +1,17 @@
-// const Electron = require("./scripts/electron.js");
-// const Orbit = require("./scripts/orbit.js");
+
 const Electron = require("./electron.js");
 const Nucleus = require("./nucleus.js");
-const Orbit = require("./orbit.js");
+const Orbital = require("./orbital.js");
 
 class Model{
     constructor(ctx,data){
         this.ctx = ctx;
         this.data = data;
-        this.electrons = []; // electron objects wil be pushed into here
+        this.electrons = []; 
+        this.oribitals = [];
         this.shells = this.getShells();
         this.init();
-        console.log(this.electrons);
+        this.animate();
         
     }
 
@@ -48,40 +48,53 @@ class Model{
 
     // make new objects here
     init(){
-        const nucleus = new Nucleus(this.ctx, this.ctx.canvas.width/2, this.ctx.canvas.height/2, 15, this.data[0].cpkHexColor, 0);
-        nucleus.draw();
+        this.nucleus = new Nucleus(this.ctx, this.ctx.canvas.width/2, this.ctx.canvas.height/2, 15, this.data[0].cpkHexColor, 0);
+        // this.nucleus.draw();
       
         this.shells.forEach( (numElectrons, shellNum) => {
             let orbitalRadius = 40 * (shellNum+1);
-            const orbit = new Orbit(this.ctx, this.ctx.canvas.width/2, this.ctx.canvas.height/2, orbitalRadius, this.data[0].cpkHexColor, 0);
-            orbit.draw();
+            this.oribitals.push(new Orbital(this.ctx, this.ctx.canvas.width/2, this.ctx.canvas.height/2, orbitalRadius, this.data[0].cpkHexColor, 0));
+       
             
             for (let i = 0 ; i < numElectrons; i++){
-                let radian = this. getRandomArbitrary(0, 6.283);
-                this.electrons.push(new Electron(this.ctx, this.ctx.canvas.width/2 + Math.sin(radian) * orbitalRadius, this.ctx.canvas.width/2 + Math.cos(radian) * orbitalRadius, 5, this.data[0].cpkHexColor, 1, orbitalRadius, radian));
+                let radian = this.getRandomArbitrary(0, 6.283);
+                this.electrons.push(new Electron(this.ctx, this.ctx.canvas.width/2 + Math.sin(radian) * orbitalRadius, this.ctx.canvas.width/2 + Math.cos(radian) * orbitalRadius, 5, this.data[0].cpkHexColor, 0.05, orbitalRadius, radian));
             }
-            this.electrons.forEach( (electron) => {
-                electron.draw();
+            // this.oribitals.forEach( (orbital) =>{
+            //     orbital.draw()
+            // });
+            // this.electrons.forEach( (electron) => {
+            //     electron.draw();
+            // });
 
-            });
+            // for (let i = 0; i < 1; i ++){
+            //     console.log(this.electrons[0])
+            //     // console.log(this.electrons[0].x, this.electrons[0].y)
+            //     this.electrons[0].update();
+               
+            // }
+            
         })
     }
     
     // will call on objects.draw or electron.animate here
     animate(){
+        requestAnimationFrame(this.animate);
+        this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
 
-
+        this.nucleus.draw();
+        this.oribitals.forEach( (orbital) =>{
+            orbital.draw()
+        });
+        this.electrons.forEach( (electron) => {
+            electron.animate();
+        });
     }
 }
 module.exports = Model;
 
 
 
-
-
-// });
-
-// electron.animate invoke request animation framepassing thru models animation function
 
 
 
