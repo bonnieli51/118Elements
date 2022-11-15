@@ -1,10 +1,23 @@
-function drawOrbits(ctx, shellNum){
-    ctx.beginPath();
-    ctx.linewidth = 2;
-    ctx.arc(300, 300, 40 * shellNum, Math.PI * 2, false);
-    ctx.strokeStyle = 'rgba(255, 255, 25,5, 0.35)';
-    ctx.stroke();
-    ctx.closePath();
+class Orbit{
+    constructor(ctx, x, y, radius, color, velocity) {
+        this.ctx = ctx;
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+        this.color = color;
+        this.velocity = velocity;
+    }
+
+    draw(){
+        this.ctx.beginPath();
+        this.ctx.linewidth = 2;
+        this.ctx.arc(this.x, this.y, this.radius, Math.PI * 2, false);
+        this.ctx.strokeStyle = this.color;
+        this.ctx.stroke();
+        this.ctx.closePath();
+    }
 }
+
+
 
 module.exports = Orbit; 

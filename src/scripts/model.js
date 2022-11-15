@@ -1,13 +1,18 @@
 // const Electron = require("./scripts/electron.js");
 // const Orbit = require("./scripts/orbit.js");
-// const Nucleus = require("./scripts/nucleus.js");
+const Electron = require("./electron.js");
+const Nucleus = require("./nucleus.js");
+const Orbit = require("./orbit.js");
 
 class Model{
     constructor(ctx,data){
         this.ctx = ctx;
         this.data = data;
-        this.electrons = [];
-        this.shell = this.getShells();
+        this.electrons = []; // electron objects wil be pushed into here
+        this.shells = this.getShells();
+        this.init();
+        console.log(this.electrons);
+        
     }
 
     getShells(){
@@ -35,11 +40,36 @@ class Model{
         });
 
         return Object.values(count);
-       
     }
 
+    getRandomArbitrary(min, max) {
+        return Math.random() * (max - min) + min;
+    }
 
+    // make new objects here
     init(){
+        const nucleus = new Nucleus(this.ctx, this.ctx.canvas.width/2, this.ctx.canvas.height/2, 15, this.data[0].cpkHexColor, 0);
+        nucleus.draw();
+      
+        this.shells.forEach( (numElectrons, shellNum) => {
+            let orbitalRadius = 40 * (shellNum+1);
+            const orbit = new Orbit(this.ctx, this.ctx.canvas.width/2, this.ctx.canvas.height/2, orbitalRadius, this.data[0].cpkHexColor, 0);
+            orbit.draw();
+            
+            for (let i = 0 ; i < numElectrons; i++){
+                let radian = this. getRandomArbitrary(0, 6.283);
+                this.electrons.push(new Electron(this.ctx, this.ctx.canvas.width/2 + Math.sin(radian) * orbitalRadius, this.ctx.canvas.width/2 + Math.cos(radian) * orbitalRadius, 5, this.data[0].cpkHexColor, 1, orbitalRadius, radian));
+            }
+            this.electrons.forEach( (electron) => {
+                electron.draw();
+
+            });
+        })
+    }
+    
+    // will call on objects.draw or electron.animate here
+    animate(){
+
 
     }
 }
@@ -48,19 +78,10 @@ module.exports = Model;
 
 
 
-// drawNucleus(ctx); 
-// shells.forEach( (numElectrons, shellNum) => {
-   
-//     drawOrbits(ctx, shellNum + 1);
-//     for (let i = 0 ; i < numElectrons; i++){
-//         drawElectron(ctx,shellNum + 1)//new Electron (x, )pushing into this.electrons
-//         // new Nucleus, 
-//         // new Orbits
-//     }
 
 // });
 
-//animate for this model. Nucles.draw()nucleus draw orbits Electron.animate invoke request animation framepassing thru models animation function
+// electron.animate invoke request animation framepassing thru models animation function
 
 
 
@@ -68,6 +89,4 @@ module.exports = Model;
 
 
 
-// function getRandomArbitrary(min, max) {
-// return Math.random() * (max - min) + min;
-// }
+

@@ -1,29 +1,21 @@
 class Nucleus {
-    constructor (x, y, radius, color, velocity, orbitRadius, radian){
+    constructor (ctx, x, y, radius, color, velocity){
+        this.ctx = ctx;
         this.x = x;
         this.y = y;
-        this.startingPos = {x, y} // make new position 
-        this.radian = radian;//0; // with new radian will change x and y to make it move in circle 
-        this.radius = radius;  //how big electron will be 
+        this.radius = radius; 
         this.color = color;
+        if (this.color === "FFFFFF") this.color = "000000";
         this.velocity = velocity;
-        this.orbitRadius = orbitRadius;
-
     }
-    //draw ()
-    //update()
-    //animate
-        //update
-        //draw
-}
-
-
-function drawNucleus(ctx){
-    ctx.beginPath();
-    ctx.arc(300, 300, 15, Math.PI * 2, false);
-    ctx.fillStyle = "#8A99C7";//hex
-    ctx.fill()
-    ctx.closePath();
+   
+    draw(){ 
+        this.ctx.beginPath();
+        this.ctx.arc(this.x, this.y,this.radius, Math.PI * 2, false);
+        this.ctx.fillStyle = `#${this.color}`;
+        this.ctx.fill()
+        this.ctx.closePath();
+    }
 }
 
 module.exports = Nucleus; 

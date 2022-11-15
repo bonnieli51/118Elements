@@ -41,8 +41,8 @@ header a {
 #periodic-table {
   display: grid;
   position: relative;
-  grid-column-gap: 0.4vw;
-  grid-row-gap: 0.4vw;
+  grid-column-gap: 0.2vw;
+  grid-row-gap: 0.2vw;
   grid-template-columns: repeat(18, 1fr);
   padding-left: 0;
   width: 900px;

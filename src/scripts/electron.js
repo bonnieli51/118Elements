@@ -1,5 +1,6 @@
 class Electron {
-    constructor (x, y, radius, color, velocity, orbitRadius, radian){
+    constructor (ctx, x, y, radius, color, velocity, orbitRadius, radian){
+        this.ctx = ctx;
         this.x = x;
         this.y = y;
         this.startingPos = {x, y} // make new position 
@@ -10,7 +11,13 @@ class Electron {
         this.orbitRadius = orbitRadius;
 
     }
-    //draw ()
+    draw (){
+        this.ctx.beginPath();
+        this.ctx.arc(this.x, this.y, this.radius, Math.PI * 2, false);
+        this.ctx.fillStyle = `#${this.color}`;
+        this.ctx.fill()
+        this.ctx.closePath();
+    }
     //update()
     //animate
         //update
