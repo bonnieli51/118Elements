@@ -8,6 +8,9 @@ class Description {
         this.atomicMass();
         this.name();
         this.electronConfiguration();
+        this.electroneg();
+        this.iEnergy();
+        this.density();
         this.boiling();
         this.melting();
     }
@@ -15,7 +18,6 @@ class Description {
     name(){
         const name = document.querySelector("#name");
         name.innerHTML = this.data[0].name;
-
     }
 
     atomicMass(){
@@ -32,6 +34,25 @@ class Description {
     electronConfiguration(){
         const eConfig = document.querySelector("#e-config");
         eConfig.innerHTML = this.data[0].electronicConfiguration;
+    }
+
+    electroneg(){
+        const eNeg = document.querySelector("#e-neg");
+        eNeg.innerHTML = this.data[0].electronegativity;
+    }
+
+    iEnergy(){
+        const energy = document.querySelector("#energy");
+        if (this.data[0].ionizationEnergy === "unknown") {
+            energy.innerHTML = `${this.data[0].ionizationEnergy}`
+        } else {
+            energy.innerHTML = `${this.data[0].ionizationEnergy}  KJ/mol`
+        }
+    }
+
+    density(){
+        const density = document.querySelector("#density");
+        density.innerHTML = this.data[0].density;
     }
 
     boiling(){

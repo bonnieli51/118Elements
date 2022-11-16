@@ -13,30 +13,46 @@
   </head>
 
   <body>
-       <header>
-            <h1>118Elements</h1>
-            <nav class="nav-bar">
-                <a href="https://github.com/bonnieli51"> <i class="fa-brands fa-github"> </i> </a>  
-                <a href="#"><i class="fa-brands fa-linkedin"></i></a>     
-                <a href="https://github.com/bonnieli51/JavaScript-Project#readme"><i class="fa-brands fa-readme"></i></a> 
-            </nav>
-       </header>
+      <header>
+        <h1>118Elements</h1>
+          <nav class="nav-bar">
+              <a href="https://github.com/bonnieli51"> <i class="fa-brands fa-github"> </i> </a>  
+              <a href="#"><i class="fa-brands fa-linkedin"></i></a>     
+              <a href="https://github.com/bonnieli51/JavaScript-Project#readme"><i class="fa-brands fa-readme"></i></a> 
+          </nav>
+      </header>
       
       <h3>Click on an element in the Periodic Table</h3>
-      <figure id="periodic-table"></figure>
-      <canvas id="bohr-model" ></canvas>
-      <ul id="description">
-        <li class="category">Element Name</li>
-        <li class="data" id="name"></li>
-        <li class="category">Atomic Mass</li>
-        <li class="data" id="atomic-mass"> </li>
-        <li class="category">Electron Configuration</li>
-        <li class="data" id="e-config"> </li>
-        <li class="category">Melting Point</li>
-        <li class="data" id="melting-point"> </li>
-        <li class="category">Boiling Point</li>
-        <li class="data" id="boiling-point"> </li>
-      </ul>
-  </body>
 
+      <figure id="periodic-table"></figure>
+
+      <div id="my-modal" class="modal"> 
+       
+        <div class="modal-content">
+          <span class="close">&times;</span>
+
+          <canvas id="bohr-model"></canvas>
+
+          <ul id="description">
+            <li class="category">Element</li>
+            <li class="data" id="name"></li>
+            <li class="category">Atomic Mass</li>
+            <li class="data" id="atomic-mass"> </li>
+            <li class="category">Electron Configuration</li>
+            <li class="data" id="e-config"> </li>
+            <li class="category">Electronegativity</li>
+            <li class="data" id="e-neg"> </li>
+            <li class="category">Ionization Energy</li>
+            <li class="data" id="energy"> </li>
+            <li class="category">Density</li>
+            <li class="data" id="density"></li>
+            <li class="category">Melting Point</li>
+            <li class="data" id="melting-point"></li>
+            <li class="category">Boiling Point</li>
+            <li class="data" id="boiling-point"></li>
+          </ul>
+
+        </div>
+      </div>
+  </body>
 </html>

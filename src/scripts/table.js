@@ -113,11 +113,11 @@ class Table{
             "alkaline earth metal": "#ECD8F2",
             "halogen": "#A979D9", 
             "metal": "#B4A3D9",
-            "metalloid":"#FFFFAD" ,
+            "metalloid":"#FFD37E" ,
             "nonmetal": "#CBE4FF",
             "noble gas": "#B9C2CC",
-            "post-transition metal": "#F2E2DC",
-            "transition metal": "#D2E8E3",
+            "post-transition metal": "#dfcdc6",
+            "transition metal": "#c2d8d3",
             "lanthanoid": "#9FE89A",
             "actinoid": "#9ED1FF"
         }
@@ -133,14 +133,8 @@ class Table{
         symbol.innerHTML = this.allElements[i].symbol;
         symbol.classList.add("symbol");
 
-        // const name = document.createElement("div");
-        // symbol.innerHTML = this.allElements[i].name
-        // name.classList.add("name");
-        
-        // div.appendChild(group);
         div.appendChild(atomicNum);
         div.appendChild(symbol);
-        // div.appendChild(name);
         this.ele.appendChild(div);
 
     };
