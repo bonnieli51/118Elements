@@ -21,8 +21,8 @@ class Electron {
     }
     update(){
         this.radian += this.velocity;
-        this.x =  300 + (Math.sin(this.radian)*this.orbitalRadius);
-        this.y = 300 + (Math.cos(this.radian)*this.orbitalRadius);
+        this.x =  this.ctx.canvas.width/2 + (Math.sin(this.radian)*this.orbitalRadius);
+        this.y = this.ctx.canvas.height/2 + (Math.cos(this.radian)*this.orbitalRadius);
        
     }
     

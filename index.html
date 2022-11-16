@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./dist/main.css" />
     <script src="https://kit.fontawesome.com/6c0c68d6ed.js" crossorigin="anonymous"></script>
     <script src="./dist/main.js" ></script>
+    <link rel="shortcut icon" type="image/jpg" href="./images/favicon.png"/>
     <title>118Elements</title>
   </head>
 
@@ -20,9 +21,22 @@
                 <a href="https://github.com/bonnieli51/JavaScript-Project#readme"><i class="fa-brands fa-readme"></i></a> 
             </nav>
        </header>
+      
+      <h3>Click on an element in the Periodic Table</h3>
       <figure id="periodic-table"></figure>
       <canvas id="bohr-model" ></canvas>
-
+      <ul id="description">
+        <li class="category">Element Name</li>
+        <li class="data" id="name"></li>
+        <li class="category">Atomic Mass</li>
+        <li class="data" id="atomic-mass"> </li>
+        <li class="category">Electron Configuration</li>
+        <li class="data" id="e-config"> </li>
+        <li class="category">Melting Point</li>
+        <li class="data" id="melting-point"> </li>
+        <li class="category">Boiling Point</li>
+        <li class="data" id="boiling-point"> </li>
+      </ul>
   </body>
 
 </html>

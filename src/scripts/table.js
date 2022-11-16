@@ -30,7 +30,7 @@ class Table{
 
     }
     setupTable(){
-
+        // console.log(this.allElements[2].groupBlock)
         for (let i = 0; i < 18; i++){
             if (i === 0){
                 this.makeElementdiv(0);
@@ -108,9 +108,22 @@ class Table{
 
      makeElementdiv(i){
 
+        let colors = {
+            "alkali metal": "#FACFCE",
+            "alkaline earth metal": "#ECD8F2",
+            "halogen": "#A979D9", 
+            "metal": "#B4A3D9",
+            "metalloid":"#FFFFAD" ,
+            "nonmetal": "#CBE4FF",
+            "noble gas": "#B9C2CC",
+            "post-transition metal": "#F2E2DC",
+            "transition metal": "#D2E8E3",
+            "lanthanoid": "#9FE89A",
+            "actinoid": "#9ED1FF"
+        }
         const div = document.createElement("div");
-        div.classList.add("element");
-        
+        div.classList.add("element")
+        div.style.backgroundColor = colors[this.allElements[i].groupBlock]
 
         const atomicNum = document.createElement("div");        
         atomicNum.classList.add("atomicNum");
@@ -124,6 +137,7 @@ class Table{
         // symbol.innerHTML = this.allElements[i].name
         // name.classList.add("name");
         
+        // div.appendChild(group);
         div.appendChild(atomicNum);
         div.appendChild(symbol);
         // div.appendChild(name);
@@ -136,5 +150,6 @@ class Table{
         this.ele.appendChild(div);
     }
 }    
+
 
 module.exports = Table;

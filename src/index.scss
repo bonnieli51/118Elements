@@ -3,6 +3,7 @@
 
 header{
     font-family: 'Roboto', Arial, sans-serif;
+    font-weight: bold;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -16,32 +17,39 @@ header{
     }
 }
 
+body{
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+
+h3 {
+    margin-left: 10px;
+}
+
 #periodic-table{
     display: grid;
     position: relative;
-    grid-column-gap:.2vw ;
-    grid-row-gap: .2vw;
+    top: 150px;
+    grid-column-gap:.22vw ;
+    grid-row-gap: .22vw;
     grid-template-columns: repeat(18, 1fr);
-    padding-left: 0;
-    width: 900px;
-    font-family: 'Roboto', Arial, sans-serif;
-
-
-    .cell{
-        pointer-events: none;
-    }
+    // padding-left: 0;
+    
+   
+    
 
     .element{
-
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         border: 1px solid #0D2557;
-        height: 60px;
-        padding: 20px;
+        // width: 40px;
+        height: 80px;
+        padding: 10px;
         text-align: center;
         cursor: pointer;
+
 
         .symbol{
             padding: 10px;
@@ -53,11 +61,44 @@ header{
             font-size: 80%;
             pointer-events: none;
         }  
+
+        .cell{
+            pointer-events: none;
+        }
+
     }
     .element:hover{
         background-color: lightblue;
     }
-
 }
 
+#bohr-model {
+    position: absolute;
+    top: 110px;
+    left: 200px;
+    border: 1px solid black;
+    border-radius: 25px;
+    width: 450px;
+    height: 450px;
+}
 
+#description {
+    // font-family: 'Roboto', Arial, sans-serif;
+    position: absolute;
+    top: 75px;
+    left: 700px;
+
+    .category{
+        font-weight: bold;
+    }
+
+    li {
+        padding: 4px;
+    }
+    
+    .data {
+        border: 1px solid black;
+        border-radius: 10px;
+        height: 15px;
+    }
+}

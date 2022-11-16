@@ -27,6 +27,7 @@ input[type=submit] {
 
 header {
   font-family: "Roboto", Arial, sans-serif;
+  font-weight: bold;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -38,18 +39,21 @@ header a {
   padding: 10px;
 }
 
+body {
+  font-family: "Roboto", Arial, sans-serif;
+}
+
+h3 {
+  margin-left: 10px;
+}
+
 #periodic-table {
   display: grid;
   position: relative;
-  grid-column-gap: 0.2vw;
-  grid-row-gap: 0.2vw;
+  top: 150px;
+  grid-column-gap: 0.22vw;
+  grid-row-gap: 0.22vw;
   grid-template-columns: repeat(18, 1fr);
-  padding-left: 0;
-  width: 900px;
-  font-family: "Roboto", Arial, sans-serif;
-}
-#periodic-table .cell {
-  pointer-events: none;
 }
 #periodic-table .element {
   display: flex;
@@ -57,8 +61,8 @@ header a {
   justify-content: center;
   align-items: center;
   border: 1px solid #0D2557;
-  height: 60px;
-  padding: 20px;
+  height: 80px;
+  padding: 10px;
   text-align: center;
   cursor: pointer;
 }
@@ -71,6 +75,36 @@ header a {
   font-size: 80%;
   pointer-events: none;
 }
+#periodic-table .element .cell {
+  pointer-events: none;
+}
 #periodic-table .element:hover {
   background-color: lightblue;
+}
+
+#bohr-model {
+  position: absolute;
+  top: 110px;
+  left: 200px;
+  border: 1px solid black;
+  border-radius: 25px;
+  width: 450px;
+  height: 450px;
+}
+
+#description {
+  position: absolute;
+  top: 75px;
+  left: 700px;
+}
+#description .category {
+  font-weight: bold;
+}
+#description li {
+  padding: 4px;
+}
+#description .data {
+  border: 1px solid black;
+  border-radius: 10px;
+  height: 15px;
 }

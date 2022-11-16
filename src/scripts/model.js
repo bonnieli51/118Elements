@@ -12,7 +12,7 @@ class Model{
         this.shells = this.getShells();
         this.init();
         this.animate();
-        
+
     }
 
     getShells(){
@@ -48,12 +48,12 @@ class Model{
 
     // make new objects here
     init(){
-        this.nucleus = new Nucleus(this.ctx, this.ctx.canvas.width/2, this.ctx.canvas.height/2, 15, this.data[0].cpkHexColor, 0);
+        this.nucleus = new Nucleus(this.ctx, this.ctx.canvas.width/2, this.ctx.canvas.height/2, 10, this.data[0].cpkHexColor, 0);
         // this.nucleus.draw();
       
         this.shells.forEach( (numElectrons, shellNum) => {
-            let orbitalRadius = 40 * (shellNum+1);
-            this.oribitals.push(new Orbital(this.ctx, this.ctx.canvas.width/2, this.ctx.canvas.height/2, orbitalRadius, this.data[0].cpkHexColor, 0));
+            let orbitalRadius = 25 * (shellNum+1);
+            this.oribitals.push(new Orbital(this.ctx, this.ctx.canvas.width/2, this.ctx.canvas.height/2, orbitalRadius, "#808080", 0));
        
             
             for (let i = 0 ; i < numElectrons; i++){
