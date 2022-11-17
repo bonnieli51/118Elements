@@ -11,7 +11,7 @@ header{
     background-color: #93A8C9;
     color: white;
     text-shadow: 2px 2px 4px #576479;
-
+    padding-top: 5px;
    
     h1 {
         margin-left: 40px;
@@ -24,7 +24,6 @@ header{
     a {
         padding: 10px;
     }
-    
 }
 
 body{
@@ -38,14 +37,13 @@ h3 {
     font-size: 15px;
     color: #8194b2;
     text-shadow: 2px 2px 4px #ced5d9d3;
-
 }
 
 #periodic-table{
     display: grid;
     position: relative;
     top: 0px;
-    grid-column-gap:.2vw ;
+    grid-column-gap: .2vw;
     grid-row-gap: .10vw;
     grid-template-columns: repeat(18, 1fr);
     color: white;
@@ -57,8 +55,7 @@ h3 {
         justify-content: center;
         align-items: center;
         border: 1px solid  rgba(191, 196, 198, 0.2);
-   
-        height: 40px;
+        height: calc(100vh/16.55);
         padding: 10px;
         text-align: center;
         border-radius: 4px;
