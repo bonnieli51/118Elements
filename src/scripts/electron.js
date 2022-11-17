@@ -3,15 +3,15 @@ class Electron {
         this.ctx = ctx;
         this.x = x;
         this.y = y;
-        this.radius = radius;  //how big electron will be 
+        this.radius = radius;
         this.color = color;
         if (this.color === "FFFFFF") this.color = "000000";
 
         this.velocity = velocity;
         this.orbitalRadius = orbitalRadius;
-        this.radian = radian;  //with new radian will change x and y to make it move in circle 
-
+        this.radian = radian; 
     }
+
     draw(){
         this.ctx.beginPath();
         this.ctx.arc(this.x, this.y, this.radius, Math.PI * 2, false);
@@ -32,7 +32,5 @@ class Electron {
         this.draw();
     }
 }
-
-
 
 module.exports = Electron; 

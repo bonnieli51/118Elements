@@ -1,11 +1,5 @@
-// const { findRelativeConfig } = require("@babel/core/lib/config/files");
-// const { at } = require("core-js/core/string");
-
-// const { make } = require("core-js/core/object");
-
-
-
 class Table{
+
     allElements
 
     constructor(ele){
@@ -14,7 +8,6 @@ class Table{
     }
     
     fetchData(){
-
         var requestOptions = {
             method: 'GET',
             redirect: 'follow'
@@ -27,10 +20,9 @@ class Table{
                 this.setupTable();
             })
             .catch(error => console.log('error', error));
-
     }
+
     setupTable(){
-        // console.log(this.allElements[2].groupBlock)
         for (let i = 0; i < 18; i++){
             if (i === 0){
                 this.makeElementdiv(0);
@@ -66,7 +58,7 @@ class Table{
         };
 
         for (let i = 0; i < 36; i++){
-                this.makeElementdiv(18+i);
+            this.makeElementdiv(18+i);
         };
 
         for (let i = 0; i < 18; i++){
@@ -108,7 +100,7 @@ class Table{
 
      makeElementdiv(i){
 
-        let colors = {
+        const colors = {
             "alkali metal": "#FACFCE",
             "alkaline earth metal": "#ECD8F2",
             "halogen": "#A979D9", 
@@ -121,6 +113,7 @@ class Table{
             "lanthanoid": "#9FE89A",
             "actinoid": "#9ED1FF"
         }
+
         const div = document.createElement("div");
         div.classList.add("element")
         div.style.backgroundColor = colors[this.allElements[i].groupBlock]
@@ -136,14 +129,13 @@ class Table{
         div.appendChild(atomicNum);
         div.appendChild(symbol);
         this.ele.appendChild(div);
-
     };
+
     makeEmptycell(){
         const div = document.createElement("div");
         div.classList.add("cell");
         this.ele.appendChild(div);
     }
 }    
-
 
 module.exports = Table;
