@@ -19,21 +19,26 @@ document.addEventListener("DOMContentLoaded", () => {
     let cell = event.target;
     let number = cell.querySelector(".atomicNum").innerText;
 
-    var requestOptions = {
-      method: "GET",
-      redirect: "follow",
-    };
+    // var requestOptions = {
+    //   method: "GET",
+    //   redirect: "follow",
+    // };
 
-    fetch(
-      `https://periodic-table-elements-info.herokuapp.com/element/atomicNumber/${number}`,
-      requestOptions
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        new Model(ctx, data);
-        new Description(data);
-      })
-      .catch((error) => console.log("error", error));
+    // fetch(
+    //   `https://periodic-table-elements-info.herokuapp.com/element/atomicNumber/${number}`,
+    //   requestOptions
+    // )
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     new Model(ctx, data);
+    //     new Description(data);
+    //   })
+    //   .catch((error) => console.log("error", error));
+    var data = [];
+    var element = all_elements[number - 1];
+    data.push(element);
+    new Model(ctx, data);
+    new Description(data);
 
     var modal = document.getElementById("my-modal");
     var span = document.getElementsByClassName("close")[0];
