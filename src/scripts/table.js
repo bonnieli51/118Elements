@@ -1,30 +1,34 @@
+const { all_elements } = require("../../data");
+
 class Table {
-  allElements;
+  allElements = all_elements;
 
   constructor(ele) {
     this.ele = ele;
-    this.fetchData();
+    // this.fetchData();
+    this.setupTable();
   }
-  //  testing
-  fetchData() {
-    var requestOptions = {
-      method: "GET",
-      redirect: "follow",
-    };
 
-    fetch(
-      "https://periodic-table-elements-info.herokuapp.com/elements",
-      requestOptions
-    )
-      .then((response) => response.json())
-      .then((result) => {
-        this.allElements = result;
-        this.setupTable();
-      })
-      .catch((error) => console.log("error", error));
-  }
+  // fetchData() {
+  //   var requestOptions = {
+  //     method: "GET",
+  //     redirect: "follow",
+  //   };
+
+  //   fetch(
+  //     "https://periodic-table-elements-info.herokuapp.com/elements",
+  //     requestOptions
+  //   )
+  //     .then((response) => response.json())
+  //     .then((result) => {
+  //       this.allElements = result;
+  //       this.setupTable();
+  //     })
+  //     .catch((error) => console.log("error", error));
+  // }
 
   setupTable() {
+    console.log("testing");
     for (let i = 0; i < 18; i++) {
       if (i === 0) {
         this.makeElementdiv(0);

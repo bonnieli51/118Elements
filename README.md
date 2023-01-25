@@ -1,7 +1,7 @@
 
 # 118Elements
 
-[118Elements](https://bonnieli51.github.io/JavaScript-Project/) is a 2D data visualization web app that allows users to view an element's atomic model and description. When users enter the web app, they are presented with a periodic table that have clickable elements cells. When the element is selected from the periodic table, its data will be fetched nto render an animated atomic model and description of the respective element. The goal of this project is to allow users to have a better visualization of electrons orbiting the nucleus.
+[118Elements](https://bonnieli51.github.io/118Elements/) is a 2D data visualization web app that allows users to view an element's atomic model and description. When users enter the web app, they are presented with a periodic table that have clickable elements cells. When the element is selected from the periodic table, its data will be fetched nto render an animated atomic model and description of the respective element. The goal of this project is to allow users to have a better visualization of electrons orbiting the nucleus.
 
 ![Interface](./assets/main_interface.png)
 
