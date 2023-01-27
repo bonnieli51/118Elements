@@ -58,6 +58,10 @@ header {
   color: white;
   text-shadow: 2px 2px 4px #576479;
   padding-top: 5px;
+  position: relative;
+  top: 0px;
+  width: 100vw;
+  z-index: 1;
 }
 header h1 {
   margin-left: 40px;
@@ -83,8 +87,9 @@ h3 {
 
 #periodic-table {
   display: grid;
-  position: relative;
-  top: 0px;
+  position: absolute;
+  top: 9vh;
+  width: 95vw;
   grid-column-gap: 0.2vw;
   grid-row-gap: 0.1vw;
   grid-template-columns: repeat(18, 1fr);
@@ -206,11 +211,11 @@ h3 {
   background-color: white;
   position: absolute;
   bottom: 0px;
-  width: 100vw;
+  width: 100%;
   background-color: #adb2e2;
   color: white;
   text-shadow: 2px 2px 4px #576479;
-  font-size: 20px;
+  font-size: 18px;
   display: flex;
   flex-direction: row;
   gap: 20px;
@@ -219,6 +224,6 @@ h3 {
   justify-content: center;
 }
 
-.footer a{
-  text-decoration:underline;
+.footer a {
+  text-decoration: underline;
 }
