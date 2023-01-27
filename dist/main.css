@@ -1,11 +1,33 @@
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
-html, body, header, nav, h1, a,
-ul, li, strong, main, button, i,
-section, img, div, h2, p, form,
-fieldset, label, input, textarea,
-span, article, footer, time, small {
+html,
+body,
+header,
+nav,
+h1,
+a,
+ul,
+li,
+strong,
+main,
+button,
+i,
+section,
+img,
+div,
+h2,
+p,
+form,
+fieldset,
+label,
+input,
+textarea,
+span,
+article,
+footer,
+time,
+small {
   margin: 0;
   padding: 0;
   border: 0;
@@ -21,7 +43,7 @@ ul {
 }
 
 button,
-input[type=submit] {
+input[type="submit"] {
   cursor: pointer;
 }
 
@@ -44,7 +66,7 @@ header nav {
   margin-right: 40px;
 }
 header a {
-  padding: 10px;
+  padding: 20px;
 }
 
 body {
@@ -173,4 +195,30 @@ h3 {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+.instructions {
+  text-align: center;
+  font-size: 18px;
+}
+
+.footer {
+  background-color: white;
+  position: absolute;
+  bottom: 0px;
+  width: 100vw;
+  background-color: #adb2e2;
+  color: white;
+  text-shadow: 2px 2px 4px #576479;
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding-top: 0.8vh;
+  padding-bottom: 0.8vh;
+  justify-content: center;
+}
+
+.footer a{
+  text-decoration:underline;
 }

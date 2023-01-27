@@ -28,7 +28,6 @@ class Table {
   // }
 
   setupTable() {
-    console.log("testing");
     for (let i = 0; i < 18; i++) {
       if (i === 0) {
         this.makeElementdiv(0);
